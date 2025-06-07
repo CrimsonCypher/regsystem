@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<h3>User Statistics</h3>
+<ul>
+{% for species, count in species_count.items() %}
+    <li>{{ species }}: {{ count }}</li>
+{% endfor %}
+</ul>
+<h3>All Users</h3>
+<table border="1">
+<tr><th>ID</th><th>Email</th><th>Name</th><th>Species</th><th>Actions</th></tr>
+{% for user in users %}
+<tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.species }}</td>
+    <td>
+        <a href="{{ url_for('admin.delete_user', user_id=user.id) }}">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

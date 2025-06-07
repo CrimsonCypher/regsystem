@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edit Profile</h2>
+<form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>{{ form.name.label }} {{ form.name(size=32) }}</p>
+    <p>{{ form.species.label }} {{ form.species(size=32) }}</p>
+    <p>{{ form.bio.label }} {{ form.bio(rows=4, cols=40) }}</p>
+    <p>{{ form.photo.label }} {{ form.photo() }}</p>
+    <p><input type="submit" value="Update"></p>
+</form>
+{% endblock %}
