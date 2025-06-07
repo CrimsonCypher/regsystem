@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome, {{ current_user.name or current_user.email }}</h2>
+{% if current_user.photo %}
+<img src="{{ url_for('main.uploaded_file', filename=current_user.photo) }}" width="200" />
+{% endif %}
+<ul>
+    <li>Email: {{ current_user.email }}</li>
+    <li>Name: {{ current_user.name }}</li>
+    <li>Species: {{ current_user.species }}</li>
+    <li>Bio: {{ current_user.bio }}</li>
+</ul>
+{% endblock %}
